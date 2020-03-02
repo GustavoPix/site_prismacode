@@ -1,0 +1,22 @@
+<div class="tituloFrase2">
+   
+    <div class="container">
+        <div class="grid-1">
+            <h2>{$titulo}</h2>
+        </div>
+        <div class="grid-1">
+            {if="isset($image_inicio)"}
+            <div class="imgInicio">
+                <img src="{#ROUTE_WEBSITE#}/img/blog/{$image_inicio}" alt="">
+            </div>
+            {/if}
+            <p>{$frase}</p>
+            {if="isset($image_final)"}
+            <div class="img">
+                <img src="{#ROUTE_WEBSITE#}/img/blog/{$image_final}" alt="">
+            </div>
+            {/if}
+        </div>
+    </div>
+    
+</div>

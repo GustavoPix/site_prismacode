@@ -1,0 +1,16 @@
+<div class="processos">
+    <div class="container">
+        <h2 class="grid-2">Processo de criação</h2>
+        {loop="$etapas"}
+            <div class="grid-1">
+                <div class="cabecalho">
+                    <p class="number">{$key+1}.</p>
+                    <p class="titulo">{$value.titulo}</p>
+                </div>
+                <div class="resumo">
+                    <p>{$value.resumo}</p>
+                </div>
+            </div>
+        {/loop}
+    </div>
+</div>

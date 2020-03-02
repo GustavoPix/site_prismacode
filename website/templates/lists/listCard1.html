@@ -1,0 +1,41 @@
+<div class="listVagasHome" id="listVagasHome">
+    <div class="container">
+        <h2>Nossas Vagas</h2>
+        <ul>
+            <li class="grid-4 vaga" v-for="vaga in vagas" :key="'vaga_' + vaga.id">
+                <div class="img">
+                    <img src="http://192.168.0.106/jobscgi/website/img/logos/logo02.png" alt="">
+                </div>
+                <h3>{{vaga.nome}}</h3>
+                <ul class="listRequisito">
+                    <li>
+                        <div class="img">
+                            {include="home"}
+                        </div>
+                        <p>{{vaga.nome_empresa}}</p>
+                    </li>
+                    <li>
+                        <div class="img">
+                            {include="map-pin"}
+                        </div>
+                        <p>{{vaga.id_estado}} - {{vaga.id_cidade}}</p>
+                    </li>
+                    <li>
+                        <div class="img">
+                            {include="award"}
+                        </div>
+                        <p>{{vaga.nivel_cargo}}</p>
+                    </li>
+                    <li>
+                        <div class="img">
+                            {include="clipboard"}
+                        </div>
+                        <p>{{vaga.tipo_contratacao}}</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <a href="./vagas" class="button2">Ver mais vagas</a>
+    </div>
+</div>
+<script src="./website/js/vagas_main.js"></script>

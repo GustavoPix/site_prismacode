@@ -1,0 +1,23 @@
+<div class="equipe">
+    <div class="container">
+        <h2 class="grid-2">Nossa equipe</h2>
+        {loop="$equipe"}
+            <div class="img grid-1">
+                <p>{$value.nome}</p>
+                <img src="{#ROUTE_WEBSITE#}/img/picture/{$value.foto}" alt="">
+            </div>
+            <div class="infos grid-1">
+                <p>{$value.frase}</p>
+                <ul class="social">
+                    {loop="$value.social"}
+                        <li>
+                            <a href="{$value.link}" target="_blank">
+                                {include="$value.image"}
+                            </a>
+                        </li>
+                    {/loop}
+                </ul>
+            </div>
+        {/loop}
+    </div>
+</div>

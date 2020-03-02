@@ -1,0 +1,20 @@
+<div class="listProjects">
+    <div class="container">
+        <h2 class="grid-2">{$titulo}</h2>
+        <ul>
+            {loop="$projects"}
+                <li class="grid-1">
+                    <a href="{#ROUTE#}/projeto/{$value.link}">
+                        <h3>{$value.name}</h3>
+                        <div class="img">
+                            <img src="{#ROUTE_WEBSITE#}/img/picture/{$value.img}" alt="">
+                        </div>
+                    </a>
+                </li>
+            {/loop} 
+        </ul>
+        {if="isset($linkButton)"}
+        <a href="{$linkButton}" class="button1">{$buttonTitle}</a>
+        {/if}
+    </div>
+</div>

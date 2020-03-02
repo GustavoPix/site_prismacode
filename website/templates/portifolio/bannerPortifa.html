@@ -1,0 +1,10 @@
+<div class="bannerPricipalPortifa">
+    <div class="container">
+        {if="isset($button)"}
+            <a href="{$button.link}" class="button1" target="_blank">{$button.text}</a>
+        {/if}
+        <div class="img grid-2">
+            <img src="{#ROUTE_WEBSITE#}/img/portfolio/{$image}" alt="">
+        </div>
+    </div>
+</div>

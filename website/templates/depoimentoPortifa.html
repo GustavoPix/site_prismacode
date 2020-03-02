@@ -1,0 +1,24 @@
+<div class="depoimentoPortifa">
+    <div class="extracontainer">
+        <div class="container">
+            {if="$depoimento!=''"}
+            <div class="grid-1">
+                <h3>Depoimento</h3>
+            </div>
+            <div class="grid-1">
+                <p>{$depoimento}</p>
+                <span>{$nomeDepoente}</span>
+            </div>
+            {/if}
+            <h2 class="grid-2">Tecnologias utilizada</h2>
+            <ul>
+                {loop="$tecnologias"}
+                    <li>
+                        {include="$value"}
+                    </li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+    <button href="" class="button1" onclick="vm_newProjectForm.open()">Iniciar projeto</button>
+</div>
