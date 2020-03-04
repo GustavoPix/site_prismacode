@@ -26,4 +26,4 @@ const SQL_DBNAME = "prismacode_db"; //banco de dados
 ?>
 ```
 
-No momento, o projeto não possui auto-criaçao de tabelas, será realizado no proximo update.
+Para criar as tabelas e popular as mesmas, acesse a url */config/table/create_and_set*
