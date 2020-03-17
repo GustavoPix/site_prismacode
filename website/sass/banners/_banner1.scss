@@ -15,6 +15,10 @@ $url: "https://prismacode.com/website";
                     height: 500px;
                     background: $color1;
                     display: block;
+                    @include responsive('small')
+                    {
+                        max-width: calc(100% - 50px);
+                    }
                 }
             }
             h2{

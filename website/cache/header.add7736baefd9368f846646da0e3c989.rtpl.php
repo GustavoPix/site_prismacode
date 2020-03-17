@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo ROUTE_WEBSITE; ?>/css/style.css">
     <script src="<?php echo ROUTE_WEBSITE; ?>/js/plugins/vue.js"></script>
     <script src="<?php echo ROUTE_WEBSITE; ?>/js/plugins/axios.js"></script>
-    <title>Document</title>
+    <title>Prismacode</title>
 </head>
 
 <body>

@@ -32,9 +32,16 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   clear: both;
 }
 
+@media screen and (max-width: 899px) {
+  .container {
+    max-width: calc(100% - 50px);
+  }
+}
+
 .extracontainer {
   margin: 0 auto;
-  max-width: 1250px;
+  width: 1250px;
+  max-width: 100%;
 }
 
 .extracontainer::after {
@@ -132,6 +139,29 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   text-align: right;
 }
 
+.header header .logo {
+  display: block;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-right: 50px;
+}
+
+.header header .logo a {
+  display: block;
+}
+
+.header header .logo a svg {
+  max-width: 100%;
+}
+
+.header header .buttonMenu {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  min-width: 50px;
+}
+
 .header .menu {
   background: #FFFAFF;
   position: fixed;
@@ -157,17 +187,24 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   margin-bottom: 50px;
 }
 
-.header .menu .logoAndClose > div {
+.header .menu .logo {
+  display: block;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding-right: 50px;
 }
 
-.header .menu .logo svg {
+.header .menu .logo a {
+  display: block;
+}
+
+.header .menu .logo a svg {
+  max-width: 100%;
   cursor: pointer;
 }
 
-.header .menu .logo svg * {
+.header .menu .logo a svg * {
   -webkit-transition: 0.1s ease;
   transition: 0.1s ease;
   fill: #E67015;
@@ -175,6 +212,10 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
 
 .header .menu .buttonMenu {
   text-align: right;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  min-width: 50px;
 }
 
 .header .menu .buttonMenu svg {
@@ -534,6 +575,12 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   height: 500px;
   background: #E67015;
   display: block;
+}
+
+@media screen and (max-width: 899px) {
+  .banner1 .extracontainer .container h1:after {
+    max-width: calc(100% - 50px);
+  }
 }
 
 .banner1 .extracontainer .container h2 {

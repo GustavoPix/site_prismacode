@@ -26,6 +26,21 @@
             text-align: right;
             
         }
+        .logo{
+            display: block;
+            flex: 1;
+            padding-right: 50px;
+            a{
+                display: block;
+                svg{
+                    max-width: 100%;
+                }
+            }
+        }
+        .buttonMenu{
+            flex: 0;
+            min-width: 50px;
+        }
     }
     .menu{
         background: $white1;
@@ -41,22 +56,32 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 50px;;
-            >div{
-                flex: 1;
-            }
+            
         }
         .logo{
-            svg{
-                *{
-                    transition: 0.1s ease;
-                    fill: $color1;
+            display: block;
+            flex: 1;
+            padding-right: 50px;
+            a{
+                display: block;
+                svg{
+                    max-width: 100%;
+                    *{
+                        transition: 0.1s ease;
+                        fill: $color1;
+                    }
+                    cursor: pointer;
                 }
-                cursor: pointer;
+            }
+            svg{
+                
                 
             }
         }
         .buttonMenu{
             text-align: right;
+            flex: 0;
+            min-width: 50px;
             svg{
                 cursor: pointer;
                 *{

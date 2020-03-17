@@ -6,14 +6,20 @@ $gutter: 50;
     @include mx-clearfix();
     width: 1050px;
     max-width: calc(100% - 200px);
+    @include responsive('small')
+    {
+        max-width: calc(100% - 50px);
+    }
 }
 .extracontainer{
     margin: 0 auto;
     @include mx-clearfix();
-    max-width: 1250px;
+    width: 1250px;
+    max-width: 100%;
     .container{
         
     }
+    
 }
 
 @for $i from 0 to $columns {
