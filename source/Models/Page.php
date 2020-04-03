@@ -25,7 +25,8 @@ class Page{
                 $_SERVER["DOCUMENT_ROOT"]. $tpl_dir . "lists/",
                 $_SERVER["DOCUMENT_ROOT"]. $tpl_dir . "headers/",
                 $_SERVER["DOCUMENT_ROOT"]. $tpl_dir . "footers/",
-                $_SERVER["DOCUMENT_ROOT"]. $tpl_dir . "svgs/"
+                $_SERVER["DOCUMENT_ROOT"]. $tpl_dir . "svgs/",
+                $_SERVER["DOCUMENT_ROOT"]. $tpl_dir . "adm/"
             ),
             "cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/website/cache/",
             "debug"         => true // set to false to improve the speed

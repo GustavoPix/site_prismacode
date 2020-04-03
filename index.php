@@ -27,6 +27,7 @@ $app = new Slim\App($c);
 
 //Routes website
 require './routes/website_route.php';
+require './routes/adm_route.php';
 
 //Routes app
 require './app/api_get_route.php';
