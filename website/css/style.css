@@ -2057,6 +2057,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   color: #E8DAB2;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -2070,6 +2071,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   color: #E67015;
   margin-top: 5px;
   margin-bottom: 50px;
+  white-space: nowrap;
 }
 
 .adm_menu h2 {
@@ -2088,6 +2090,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   transition: 0.5s ease;
   padding: 12.5px 0;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .adm_menu ul li:hover {
@@ -2104,6 +2107,24 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
 
 .adm_menu2 {
   background: #1D1B1F;
+}
+
+.adm_menu2 ul {
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.adm_menu3 {
+  background: #131214;
+}
+
+.adm_menu3 ul {
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.adm_content {
+  overflow-y: scroll;
 }
 
 .adm_content h1 {
@@ -2143,6 +2164,18 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
 
 .adm_content div textarea {
   height: 250px;
+}
+
+.adm_content div .img {
+  width: 450px;
+  height: 650px;
+}
+
+.adm_content div .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .adm_content .button1 {
