@@ -1,0 +1,84 @@
+.adm_menu{
+    display: flex;
+    flex-direction: column;
+    >p {
+        font-family: $font2;
+        font-size: $font-size1;
+        color: $white2;
+        transition: 0.5s ease;
+        cursor: pointer;
+        &:hover{
+            color: $color1;
+        }
+    }
+    h1,h2{
+        font-family: $font1;
+        font-size: $font-size2;
+        color: $color1;
+        margin-top: 5px;
+        margin-bottom: 50px;
+    }
+    h2{
+        margin-top: 21px;
+    }
+    ul{
+        height: 100%;
+        li{
+            font-family: $font2;
+            font-size: $font-size1;
+            color: $white2;
+            transition: 0.5s ease;
+            padding: 12.5px 0;
+            cursor: pointer;
+            &:hover{
+                color: $color1;
+            }
+        }
+        .selected{
+            color: $color1;
+        }
+    }
+}
+
+.adm_menu1{
+    background: $adm_black1;
+}
+.adm_menu2{
+    background: $adm_black2;
+}
+
+.adm_content{
+    h1{
+        font-family: $font1;
+        font-size: $font-size2;
+        color: $color1;
+        margin-top: 21px;
+        margin-bottom: 50px;
+    }
+    div{
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 50px;
+        p{
+            font-family: $font2;
+            font-size: $font-size1;
+            color: $adm_black1;
+            width: 150px;
+        }
+        input,textarea{
+            font-family: $font2;
+            font-size: $font-size1;
+            color: $adm_black1;
+            border: none;
+            background: none;
+            resize: none;
+            width: 500px;
+        }
+        textarea{
+            height: 250px;
+        }
+    }
+    .button1{
+        color: $adm_black1;
+    }
+}

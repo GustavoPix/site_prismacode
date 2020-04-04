@@ -1,0 +1,10 @@
+.mainAdm{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    background: $white1;
+    >div {
+        padding: 50px 75px 50px 50px;
+    }
+}

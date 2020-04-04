@@ -2027,6 +2027,128 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   padding-top: 0;
 }
 
+.mainAdm {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #FFFAFF;
+}
+
+.mainAdm > div {
+  padding: 50px 75px 50px 50px;
+}
+
+.adm_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.adm_menu > p {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #E8DAB2;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.adm_menu > p:hover {
+  color: #E67015;
+}
+
+.adm_menu h1, .adm_menu h2 {
+  font-family: "Space Mono", monospace;
+  font-size: 21px;
+  color: #E67015;
+  margin-top: 5px;
+  margin-bottom: 50px;
+}
+
+.adm_menu h2 {
+  margin-top: 21px;
+}
+
+.adm_menu ul {
+  height: 100%;
+}
+
+.adm_menu ul li {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #E8DAB2;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  padding: 12.5px 0;
+  cursor: pointer;
+}
+
+.adm_menu ul li:hover {
+  color: #E67015;
+}
+
+.adm_menu ul .selected {
+  color: #E67015;
+}
+
+.adm_menu1 {
+  background: #262227;
+}
+
+.adm_menu2 {
+  background: #1D1B1F;
+}
+
+.adm_content h1 {
+  font-family: "Space Mono", monospace;
+  font-size: 21px;
+  color: #E67015;
+  margin-top: 21px;
+  margin-bottom: 50px;
+}
+
+.adm_content div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.adm_content div p {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #262227;
+  width: 150px;
+}
+
+.adm_content div input, .adm_content div textarea {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #262227;
+  border: none;
+  background: none;
+  resize: none;
+  width: 500px;
+}
+
+.adm_content div textarea {
+  height: 250px;
+}
+
+.adm_content .button1 {
+  color: #262227;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }

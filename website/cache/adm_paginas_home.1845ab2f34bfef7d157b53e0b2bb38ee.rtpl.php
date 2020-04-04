@@ -1,4 +1,4 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="adm_menu adm_menu1">
     <p>Olá</p>
     <h1>Gustavo Carvalho</h1>
     <ul>
@@ -7,17 +7,17 @@
     </ul>
     <p>Sair</p>
 </div>
-<div>
+<div class="adm_menu adm_menu2">
     <h2>Páginas</h2>
     <ul>
-        <li>Home</li>
+        <li class="selected">Home</li>
         <li>Sobre</li>
         <li>Projetos</li>
         <li>Serviços</li>
         <li>Contato</li>
     </ul>
 </div>
-<div>
+<div class="adm_content">
     <h1>Home</h1>
     <div>
         <p>Título</p>
@@ -31,5 +31,5 @@
         <p>Solução</p>
         <textarea name="" id="" cols="30" rows="10"></textarea>
     </div>
-    <button>Salvar</button>
+    <button class="button1">Salvar</button>
 </div>
