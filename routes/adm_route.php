@@ -64,5 +64,33 @@ $app->get('/adm/paginas/sobre/usuario/{idUser}', function (Request $request, Res
     ]);
     
 });
+$app->get('/adm/paginas/projetos/principal', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_projetos_principal",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
+$app->get('/adm/paginas/projetos/{idProject}', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_projetos_trabalho",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
 
 ?>

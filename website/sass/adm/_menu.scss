@@ -63,6 +63,7 @@
 
 .adm_content{
     overflow-y: scroll;
+    flex: 1;
     h1{
         font-family: $font1;
         font-size: $font-size2;
