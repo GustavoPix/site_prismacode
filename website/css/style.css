@@ -2240,6 +2240,18 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
      object-fit: cover;
 }
 
+.adm_content div .inputCliente {
+  width: 500px;
+  font-family: "Space Mono", monospace;
+}
+
+.adm_content div .textoCliente {
+  width: 500px;
+  height: 250px;
+  font-family: "Space Mono", monospace;
+  overflow-y: scroll;
+}
+
 .adm_content .button1 {
   color: #262227;
 }

@@ -138,6 +138,16 @@
                 }
             }
         }
+        .inputCliente{
+            width: 500px;
+            font-family: $font1;
+        }
+        .textoCliente{
+            width: 500px;
+            height: 250px;
+            font-family: $font1;
+            overflow-y: scroll;
+        }
     }
     .button1{
         color: $adm_black1;
