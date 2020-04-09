@@ -60,14 +60,40 @@
     </div>
     <div>
         <p>Tecnologias</p>
-        <ul>
+        <ul class="listTecnologias">
             <li>
-                <p>php</p>
+                <input type="text">
                 <button>Deletar</button>
             </li>
             <li>
-                <p>vuejs</p>
+                <input type="text">
                 <button>Deletar</button>
+            </li>
+            <li>
+                <button>Novo</button>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <p>Imagens</p>
+        <ul class="listImages">
+            <li class="img">
+                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
+            </li>
+            <li class="img">
+                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
+            </li>
+            <li class="img">
+                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
+            </li>
+            <li class="img">
+                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
+            </li>
+            <li class="img">
+                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
+            </li>
+            <li class="img">
+                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
             </li>
         </ul>
     </div>

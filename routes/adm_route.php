@@ -92,5 +92,75 @@ $app->get('/adm/paginas/projetos/{idProject}', function (Request $request, Respo
     ]);
     
 });
+$app->get('/adm/paginas/servicos/principal', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_servicos_principal",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
+$app->get('/adm/paginas/servicos/website', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_servicos_website",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
+$app->get('/adm/paginas/servicos/software', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_servicos_software",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
+$app->get('/adm/paginas/servicos/processocriacao', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_servicos_processocriacao",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
+$app->get('/adm/paginas/contato', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_paginas_contato",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
 
 ?>
