@@ -2252,6 +2252,15 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   overflow-y: scroll;
 }
 
+.adm_content div .textButton {
+  border: none;
+  background: none;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #E67015;
+  cursor: pointer;
+}
+
 .adm_content .button1 {
   color: #262227;
 }

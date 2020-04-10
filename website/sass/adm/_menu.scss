@@ -148,6 +148,14 @@
             font-family: $font1;
             overflow-y: scroll;
         }
+        .textButton{
+            border: none;
+            background: none;
+            font-family: $font2;
+            font-size: $font-size1;
+            color: $color1;
+            cursor: pointer;
+        }
     }
     .button1{
         color: $adm_black1;

@@ -162,13 +162,27 @@ $app->get('/adm/paginas/contato', function (Request $request, Response $response
     ]);
     
 });
-$app->get('/adm/mensagens/mensagens', function (Request $request, Response $response, array $args) use ($app) {
+$app->get('/adm/mensagens/mensagens/{idMensagem}', function (Request $request, Response $response, array $args) use ($app) {
 
     $page = new Page();
     $page->setTpl("adm_header",[
         
     ]);
     $page->setTpl("adm_mensagens_mensagens",[
+        
+    ]);
+    $page->setTpl("adm_footer",[
+        
+    ]);
+    
+});
+$app->get('/adm/mensagens/projetos/{idMensagem}', function (Request $request, Response $response, array $args) use ($app) {
+
+    $page = new Page();
+    $page->setTpl("adm_header",[
+        
+    ]);
+    $page->setTpl("adm_mensagens_projetos",[
         
     ]);
     $page->setTpl("adm_footer",[
