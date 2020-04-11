@@ -26,19 +26,23 @@
     ul{
         height: 100%;
         li{
-            font-family: $font2;
-            font-size: $font-size1;
-            color: $white2;
-            transition: 0.5s ease;
             padding: 12.5px 0;
-            cursor: pointer;
-            white-space: nowrap;
-            &:hover{
-                color: $color1;
+            a{
+                font-family: $font2;
+                font-size: $font-size1;
+                color: $white2;
+                transition: 0.5s ease;
+                cursor: pointer;
+                white-space: nowrap;
+                &:hover{
+                    color: $color1;
+                }
             }
         }
         .selected{
-            color: $color1;
+            a{
+                color: $color1;
+            }
         }
     }
 }

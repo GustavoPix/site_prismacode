@@ -6,6 +6,9 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use Source\Models\Page;
 use Source\Sql\Models\Projeto;
 use Source\Sql\Models\Blog;
+use Source\Lists\MainMenu;
+use Source\Lists\PaginasMenu;
+use Source\Sql\Models\Content;
 
 $app->get('/adm/paginas/home', function (Request $request, Response $response, array $args) use ($app) {
 
@@ -14,7 +17,9 @@ $app->get('/adm/paginas/home', function (Request $request, Response $response, a
         
     ]);
     $page->setTpl("adm_paginas_home",[
-        
+        "mainMenu"=>MainMenu::Menu("paginas"),
+        "secondMenu"=>PaginasMenu::Menu("home"),
+        "titulo"=>Content::GetContent('titulo','home')
     ]);
     $page->setTpl("adm_footer",[
         

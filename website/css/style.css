@@ -2083,21 +2083,24 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
 }
 
 .adm_menu ul li {
+  padding: 12.5px 0;
+}
+
+.adm_menu ul li a {
   font-family: "Lato", sans-serif;
   font-size: 16px;
   color: #E8DAB2;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
-  padding: 12.5px 0;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.adm_menu ul li:hover {
+.adm_menu ul li a:hover {
   color: #E67015;
 }
 
-.adm_menu ul .selected {
+.adm_menu ul .selected a {
   color: #E67015;
 }
 
