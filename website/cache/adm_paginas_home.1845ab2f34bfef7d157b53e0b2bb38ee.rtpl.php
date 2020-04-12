@@ -20,15 +20,15 @@
     <h1>Home</h1>
     <div>
         <p>Título</p>
-        <input type="text" value="<?php echo htmlspecialchars( $titulo["0"]["text"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Sobre</p>
-        <textarea value=""></textarea>
+        <textarea value=""><?php echo htmlspecialchars( $content->GetContent('sobre'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Solução</p>
-        <textarea value=""></textarea>
+        <textarea value=""><?php echo htmlspecialchars( $content->GetContent('solucoes'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <button class="button1">Salvar</button>
 </div>

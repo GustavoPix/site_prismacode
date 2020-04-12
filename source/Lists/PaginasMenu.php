@@ -13,7 +13,7 @@ class PaginasMenu{
             ),
             array(
                 "name"=>"Sobre",
-                "link"=>ROUTE . "/adm/paginas/sobre",
+                "link"=>ROUTE . "/adm/paginas/sobre/principal",
                 "active"=>$active == "sobre"
             ),
             array(

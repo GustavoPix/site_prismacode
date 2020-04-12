@@ -8,18 +8,21 @@ use Source\Sql\Models\Projeto;
 use Source\Sql\Models\Blog;
 use Source\Lists\MainMenu;
 use Source\Lists\PaginasMenu;
+use Source\Lists\SobreMenu;
 use Source\Sql\Models\Content;
+use Source\Sql\Models\Equipe;
 
 $app->get('/adm/paginas/home', function (Request $request, Response $response, array $args) use ($app) {
 
     $page = new Page();
+    $content = new Content("home");
     $page->setTpl("adm_header",[
         
     ]);
     $page->setTpl("adm_paginas_home",[
         "mainMenu"=>MainMenu::Menu("paginas"),
         "secondMenu"=>PaginasMenu::Menu("home"),
-        "titulo"=>Content::GetContent('titulo','home')
+        "content"=>$content
     ]);
     $page->setTpl("adm_footer",[
         
@@ -30,8 +33,13 @@ $app->get('/adm/paginas/home', function (Request $request, Response $response, a
 $app->get('/adm/paginas/sobre/principal', function (Request $request, Response $response, array $args) use ($app) {
 
     $page = new Page();
+    $content = new Content("sobre");
     $page->setTpl("adm_header",[
-        
+        "mainMenu"=>MainMenu::Menu("paginas"),
+        "secondMenu"=>PaginasMenu::Menu("sobre"),
+        "thirMenu"=>SobreMenu::Menu("principal"),
+        "equipe"=>Equipe::GetList(),
+        "content"=>$content
     ]);
     $page->setTpl("adm_paginas_sobre_principal",[
         
@@ -48,7 +56,7 @@ $app->get('/adm/paginas/sobre/usuario/novo', function (Request $request, Respons
         
     ]);
     $page->setTpl("adm_paginas_sobre_usuario",[
-        
+
     ]);
     $page->setTpl("adm_footer",[
         
@@ -62,7 +70,11 @@ $app->get('/adm/paginas/sobre/usuario/{idUser}', function (Request $request, Res
         
     ]);
     $page->setTpl("adm_paginas_sobre_usuario",[
-        
+        "mainMenu"=>MainMenu::Menu("paginas"),
+        "secondMenu"=>PaginasMenu::Menu("sobre"),
+        "thirMenu"=>SobreMenu::Menu(""),
+        "equipe"=>Equipe::GetList($args["idUser"]),
+        "user"=>Equipe::GetUser($args["idUser"])[0]
     ]);
     $page->setTpl("adm_footer",[
         
