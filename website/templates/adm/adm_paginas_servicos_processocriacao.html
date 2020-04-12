@@ -2,28 +2,26 @@
     <p>Olá</p>
     <h1>Gustavo Carvalho</h1>
     <ul>
-        <li>Páginas</li>
-        <li>Mensagens</li>
+        {loop="$mainMenu"}
+            <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
+        {/loop}
     </ul>
     <p>Sair</p>
 </div>
 <div class="adm_menu adm_menu2">
     <h2>Páginas</h2>
     <ul>
-        <li>Home</li>
-        <li>Sobre</li>
-        <li>Projetos</li>
-        <li class="selected">Serviços</li>
-        <li>Contato</li>
+        {loop="$secondMenu"}
+            <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
+        {/loop}
     </ul>
 </div>
 <div class="adm_menu adm_menu3">
     <h2>Serviços</h2>
     <ul>
-        <li>Principal</li>
-        <li class="selected">Processo de Criação</li>
-        <li>Website</li>
-        <li>Software</li>
+        {loop="$thirMenu"}
+            <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
+        {/loop}
     </ul>
 </div>
 <div class="adm_content">
@@ -31,11 +29,13 @@
     <div>
         <p>Processos</p>
         <ul class="listTecnologias">
+            {loop="$processos"}
             <li>
-                <input type="text">
-                <textarea name="" id=""></textarea>
+                <input type="text" value="{$value.title}">
+                <textarea>{$value.text}</textarea>
                 <button>Deletar</button>
             </li>
+            {/loop}
             <li>
                 <button>Novo</button>
             </li>

@@ -18,12 +18,12 @@ class PaginasMenu{
             ),
             array(
                 "name"=>"Projetos",
-                "link"=>ROUTE . "/adm/paginas/projetos",
+                "link"=>ROUTE . "/adm/paginas/projetos/principal",
                 "active"=>$active == "projetos"
             ),
             array(
                 "name"=>"Serviços",
-                "link"=>ROUTE . "/adm/paginas/servicos",
+                "link"=>ROUTE . "/adm/paginas/servicos/principal",
                 "active"=>$active == "servicos"
             ),
             array(

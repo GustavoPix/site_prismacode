@@ -2,28 +2,26 @@
     <p>Olá</p>
     <h1>Gustavo Carvalho</h1>
     <ul>
-        <li>Páginas</li>
-        <li>Mensagens</li>
+        <?php $counter1=-1;  if( isset($mainMenu) && ( is_array($mainMenu) || $mainMenu instanceof Traversable ) && sizeof($mainMenu) ) foreach( $mainMenu as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
     </ul>
     <p>Sair</p>
 </div>
 <div class="adm_menu adm_menu2">
     <h2>Páginas</h2>
     <ul>
-        <li>Home</li>
-        <li>Sobre</li>
-        <li>Projetos</li>
-        <li class="selected">Serviços</li>
-        <li>Contato</li>
+        <?php $counter1=-1;  if( isset($secondMenu) && ( is_array($secondMenu) || $secondMenu instanceof Traversable ) && sizeof($secondMenu) ) foreach( $secondMenu as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
     </ul>
 </div>
 <div class="adm_menu adm_menu3">
     <h2>Serviços</h2>
     <ul>
-        <li>Principal</li>
-        <li class="selected">Processo de Criação</li>
-        <li>Website</li>
-        <li>Software</li>
+        <?php $counter1=-1;  if( isset($thirMenu) && ( is_array($thirMenu) || $thirMenu instanceof Traversable ) && sizeof($thirMenu) ) foreach( $thirMenu as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
     </ul>
 </div>
 <div class="adm_content">
@@ -31,11 +29,13 @@
     <div>
         <p>Processos</p>
         <ul class="listTecnologias">
+            <?php $counter1=-1;  if( isset($processos) && ( is_array($processos) || $processos instanceof Traversable ) && sizeof($processos) ) foreach( $processos as $key1 => $value1 ){ $counter1++; ?>
             <li>
-                <input type="text">
-                <textarea name="" id=""></textarea>
+                <input type="text" value="<?php echo htmlspecialchars( $value1["title"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                <textarea><?php echo htmlspecialchars( $value1["text"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
                 <button>Deletar</button>
             </li>
+            <?php } ?>
             <li>
                 <button>Novo</button>
             </li>

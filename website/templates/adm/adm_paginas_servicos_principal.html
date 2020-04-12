@@ -2,35 +2,33 @@
     <p>Olá</p>
     <h1>Gustavo Carvalho</h1>
     <ul>
-        <li>Páginas</li>
-        <li>Mensagens</li>
+        {loop="$mainMenu"}
+            <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
+        {/loop}
     </ul>
     <p>Sair</p>
 </div>
 <div class="adm_menu adm_menu2">
     <h2>Páginas</h2>
     <ul>
-        <li>Home</li>
-        <li>Sobre</li>
-        <li>Projetos</li>
-        <li class="selected">Serviços</li>
-        <li>Contato</li>
+        {loop="$secondMenu"}
+            <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
+        {/loop}
     </ul>
 </div>
 <div class="adm_menu adm_menu3">
     <h2>Serviços</h2>
     <ul>
-        <li class="selected">Principal</li>
-        <li>Processo de Criação</li>
-        <li>Website</li>
-        <li>Software</li>
+        {loop="$thirMenu"}
+            <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
+        {/loop}
     </ul>
 </div>
 <div class="adm_content">
-    <h1>Serviços / Website</h1>
+    <h1>Serviços / Principal</h1>
     <div>
         <p>Titulo</p>
-        <input type="text">
+        <input type="text" value="{$content->GetContent('titulo')}">
     </div>
     
     

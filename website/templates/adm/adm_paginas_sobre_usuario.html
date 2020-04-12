@@ -28,11 +28,11 @@
         {loop="$equipe"}
             <li {if="$value.active"}class="selected"{/if}><a href="{$value.link}">{$value.name}</a></li>
         {/loop}
-        <li><a href="{#ROUTE#}/adm/paginas/sobre/usuario/novo">+ Novo Usuário</a></li>
+        <li {if="$novoUser"}class="selected"{/if}><a href="{#ROUTE#}/adm/paginas/sobre/usuario/novo">+ Novo Usuário</a></li>
     </ul>
 </div>
 <div class="adm_content">
-    <h1>Equipe / {$user.name}</h1>
+    <h1>Equipe / {$user.name ? $user.name : "Novo Usuário"}</h1>
     <div>
         <p>Nome</p>
         <input type="text" value="{$user.name}">

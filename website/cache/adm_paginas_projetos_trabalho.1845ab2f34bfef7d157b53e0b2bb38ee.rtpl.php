@@ -2,73 +2,74 @@
     <p>Olá</p>
     <h1>Gustavo Carvalho</h1>
     <ul>
-        <li>Páginas</li>
-        <li>Mensagens</li>
+        <?php $counter1=-1;  if( isset($mainMenu) && ( is_array($mainMenu) || $mainMenu instanceof Traversable ) && sizeof($mainMenu) ) foreach( $mainMenu as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
     </ul>
     <p>Sair</p>
 </div>
 <div class="adm_menu adm_menu2">
     <h2>Páginas</h2>
     <ul>
-        <li>Home</li>
-        <li>Sobre</li>
-        <li class="selected">Projetos</li>
-        <li>Serviços</li>
-        <li>Contato</li>
+        <?php $counter1=-1;  if( isset($secondMenu) && ( is_array($secondMenu) || $secondMenu instanceof Traversable ) && sizeof($secondMenu) ) foreach( $secondMenu as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
     </ul>
 </div>
 <div class="adm_menu adm_menu3">
     <h2>Projetos</h2>
     <ul>
-        <li>Principal</li>
+        <?php $counter1=-1;  if( isset($thirMenu) && ( is_array($thirMenu) || $thirMenu instanceof Traversable ) && sizeof($thirMenu) ) foreach( $thirMenu as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
     </ul>
     <h2>Trabalhos</h2>
     <ul>
-        <li class="selected">Ilustranext</li>
-        <li>+ Novo Trabalho</li>
+        <?php $counter1=-1;  if( isset($trabalhos) && ( is_array($trabalhos) || $trabalhos instanceof Traversable ) && sizeof($trabalhos) ) foreach( $trabalhos as $key1 => $value1 ){ $counter1++; ?>
+            <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+        <?php } ?>
+        <li <?php if( $novoTrabalho ){ ?>class="selected"<?php } ?>><a href="<?php echo ROUTE; ?>/adm/paginas/projetos/novo">+ Novo Trabalho</a></li>
     </ul>
 </div>
 <div class="adm_content">
-    <h1>Projetos / Ilustranext</h1>
+    <h1>Projetos / <?php echo (htmlspecialchars( $trabalho["nome"] , ENT_COMPAT, 'UTF-8', FALSE )?htmlspecialchars(  $trabalho["nome"] , ENT_COMPAT, 'UTF-8', FALSE ): "Novo Trabalho"); ?></h1>
     <div>
         <p>Nome</p>
-        <input type="text">
+        <input type="text" value="<?php echo htmlspecialchars( $trabalho["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
-        <p>Intro</p>
-        <input type="text">
+        <p>Tipo</p>
+        <input type="text" value="<?php echo htmlspecialchars( $trabalho["tipo"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Site</p>
-        <input type="text">
+        <input type="text" value="<?php echo htmlspecialchars( $trabalho["site"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>O Projeto</p>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea><?php echo htmlspecialchars( $trabalho["projeto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Features</p>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea><?php echo htmlspecialchars( $trabalho["features"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Solução</p>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea><?php echo htmlspecialchars( $trabalho["solucao"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Resultado</p>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea><?php echo htmlspecialchars( $trabalho["resultado"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Tecnologias</p>
         <ul class="listTecnologias">
+            <?php $counter1=-1;  if( isset($tecnologias) && ( is_array($tecnologias) || $tecnologias instanceof Traversable ) && sizeof($tecnologias) ) foreach( $tecnologias as $key1 => $value1 ){ $counter1++; ?>
             <li>
-                <input type="text">
+                <input type="text" value="<?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                 <button>Deletar</button>
             </li>
-            <li>
-                <input type="text">
-                <button>Deletar</button>
-            </li>
+            <?php } ?>
             <li>
                 <button>Novo</button>
             </li>
@@ -77,24 +78,33 @@
     <div>
         <p>Imagens</p>
         <ul class="listImages">
-            <li class="img">
-                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
-            </li>
-            <li class="img">
-                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
-            </li>
-            <li class="img">
-                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
-            </li>
-            <li class="img">
-                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
-            </li>
-            <li class="img">
-                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
-            </li>
-            <li class="img">
-                <img src="https://prismacode.com/website/img/picture/banner1_1.png" alt="">
-            </li>
+            <?php if( $imagens ){ ?>
+                <?php $counter1=-1;  if( isset($imagens) && ( is_array($imagens) || $imagens instanceof Traversable ) && sizeof($imagens) ) foreach( $imagens as $key1 => $value1 ){ $counter1++; ?>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/<?php echo htmlspecialchars( $value1["url"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="">
+                </li>
+                <?php } ?>
+            <?php }else{ ?>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/0" alt="">
+                </li>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/0" alt="">
+                </li>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/0" alt="">
+                </li>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/0" alt="">
+                </li>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/0" alt="">
+                </li>
+                <li class="img">
+                    <img src="https://prismacode.com/website/img/portfolio/0" alt="">
+                </li>
+            <?php } ?>
+            
         </ul>
     </div>
     
