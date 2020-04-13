@@ -8,9 +8,12 @@ use Source\Sql\Models\Projeto;
 use Source\Sql\Models\Blog;
 use Source\Lists\MainMenu;
 use Source\Lists\PaginasMenu;
+use Source\Lists\MensagensMenu;
 use Source\Lists\SobreMenu;
 use Source\Lists\ProjetosMenu;
 use Source\Lists\ServicosMenu;
+use Source\Sql\Models\Mensagens;
+use Source\Sql\Models\Projetos;
 use Source\Sql\Models\Content;
 use Source\Sql\Models\Equipe;
 use Source\Sql\Models\Trabalhos;
@@ -244,7 +247,11 @@ $app->get('/adm/mensagens/mensagens/{idMensagem}', function (Request $request, R
         
     ]);
     $page->setTpl("adm_mensagens_mensagens",[
-        
+        "mainMenu"=>MainMenu::Menu("mensagens"),
+        "secondMenu"=>MensagensMenu::Menu("mensagens"),
+        "mensagensNovas"=>Mensagens::GetListNovas($args["idMensagem"]),
+        "mensagensLidas"=>Mensagens::GetListLidas($args["idMensagem"]),
+        "mensagem"=>Mensagens::GetMensagem($args["idMensagem"])[0]
     ]);
     $page->setTpl("adm_footer",[
         
@@ -258,7 +265,11 @@ $app->get('/adm/mensagens/projetos/{idMensagem}', function (Request $request, Re
         
     ]);
     $page->setTpl("adm_mensagens_projetos",[
-        
+        "mainMenu"=>MainMenu::Menu("mensagens"),
+        "secondMenu"=>MensagensMenu::Menu("projetos"),
+        "mensagensNovas"=>Projetos::GetListNovas($args["idMensagem"]),
+        "mensagensLidas"=>Projetos::GetListLidas($args["idMensagem"]),
+        "mensagem"=>Projetos::GetMensagem($args["idMensagem"])[0]
     ]);
     $page->setTpl("adm_footer",[
         
