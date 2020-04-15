@@ -28,13 +28,15 @@
     <h1>Serviços / Software</h1>
     <div>
         <p>O que fazemos</p>
-        <textarea><?php echo htmlspecialchars( $content->GetContent('o que fazemos'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="o_que_fazemos"><?php echo htmlspecialchars( $content->GetContent('o que fazemos'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>O projeto</p>
-        <textarea><?php echo htmlspecialchars( $content->GetContent('o projeto'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="o_projeto"><?php echo htmlspecialchars( $content->GetContent('o projeto'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     
     
-    <button class="button1">Salvar</button>
+    <button class="button1" onclick="Pagina.update()">Salvar</button>
 </div>
+
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginasSoftware.js"></script>

@@ -28,9 +28,11 @@
     <h1>Serviços / Principal</h1>
     <div>
         <p>Titulo</p>
-        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="titulo" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     
     
-    <button class="button1">Salvar</button>
+    <button class="button1" onclick="Pagina.update()">Salvar</button>
 </div>
+
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginasServicos.js"></script>

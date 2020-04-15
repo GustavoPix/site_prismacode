@@ -28,13 +28,15 @@
     <h1>Serviços / Website</h1>
     <div>
         <p>O que fazemos</p>
-        <textarea>{$content->GetContent('o que fazemos')}</textarea>
+        <textarea id="o_que_fazemos">{$content->GetContent('o que fazemos')}</textarea>
     </div>
     <div>
         <p>O projeto</p>
-        <textarea>{$content->GetContent('o projeto')}</textarea>
+        <textarea id="o_projeto">{$content->GetContent('o projeto')}</textarea>
     </div>
     
     
-    <button class="button1">Salvar</button>
+    <button class="button1" onclick="Pagina.update()">Salvar</button>
 </div>
+
+<script src="{#ROUTE_WEBSITE#}/js/adm/PaginasWebsite.js"></script>

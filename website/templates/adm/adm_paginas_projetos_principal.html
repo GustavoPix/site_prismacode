@@ -35,12 +35,14 @@
     <h1>Projetos / Principal</h1>
     <div>
         <p>Título</p>
-        <input type="text" value="{$content->GetContent('titulo')}">
+        <input type="text" id="titulo" value="{$content->GetContent('titulo')}">
     </div>
     <div>
         <p>Sobre</p>
-        <textarea>{$content->GetContent('sobre')}</textarea>
+        <textarea id="sobre">{$content->GetContent('sobre')}</textarea>
     </div>
     
-    <button class="button1">Salvar</button>
+    <button class="button1" onclick="Pagina.update()">Salvar</button>
 </div>
+
+<script src="{#ROUTE_WEBSITE#}/js/adm/PaginasProjetos.js"></script>

@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="<?php echo ROUTE_WEBSITE; ?>/css/style.css">
     <script src="<?php echo ROUTE_WEBSITE; ?>/js/plugins/vue.js"></script>
     <script src="<?php echo ROUTE_WEBSITE; ?>/js/plugins/axios.js"></script>
+    <!--
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    -->
     <title>Document</title>
 </head>
 <body>
+    <script>
+    const GlobalConfigs = {
+        host: "<?php echo ROUTE; ?>",
+        hostApi: "<?php echo ROUTE_API; ?>"
+    }    
+    </script>
     <div class="mainAdm">
 

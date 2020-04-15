@@ -20,21 +20,23 @@
     <h1>Contato</h1>
     <div>
         <p>Título</p>
-        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="titulo" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Email</p>
-        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('email'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="email" value="<?php echo htmlspecialchars( $content->GetContent('email'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Instagram</p>
-        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('instagram'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="instagram" value="<?php echo htmlspecialchars( $content->GetContent('instagram'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Facebook</p>
-        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('facebook'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="facebook" value="<?php echo htmlspecialchars( $content->GetContent('facebook'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     
     
-    <button class="button1">Salvar</button>
+    <button class="button1" onclick="Pagina.update()">Salvar</button>
 </div>
+
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginasContato.js"></script>

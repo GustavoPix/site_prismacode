@@ -35,12 +35,14 @@
     <h1>Projetos / Principal</h1>
     <div>
         <p>Título</p>
-        <input type="text" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="titulo" value="<?php echo htmlspecialchars( $content->GetContent('titulo'), ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Sobre</p>
-        <textarea><?php echo htmlspecialchars( $content->GetContent('sobre'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="sobre"><?php echo htmlspecialchars( $content->GetContent('sobre'), ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     
-    <button class="button1">Salvar</button>
+    <button class="button1" onclick="Pagina.update()">Salvar</button>
 </div>
+
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginasProjetos.js"></script>

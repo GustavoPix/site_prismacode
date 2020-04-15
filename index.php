@@ -32,6 +32,7 @@ require './routes/adm_route.php';
 //Routes app
 require './app/api_get_route.php';
 require './app/api_post_route.php';
+require './app/api_post_routeAdm.php';
 require './app/api_security.php';
 
 $app->run();
