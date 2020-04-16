@@ -23,6 +23,39 @@ $app->post('/api/adm/updateContent', function (Request $request, Response $respo
     }
 
 });
+$app->post('/api/adm/updateUser', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+
+        $sql->select("UPDATE equipe SET name = :name, sobre = :sobre, linkedin = :linkedin, github = :github WHERE id = :id",[
+            ":name"=>isset($_POST["name"]) ? $_POST["name"] : "",
+            ":sobre"=>isset($_POST["sobre"]) ? $_POST["sobre"] : "",
+            ":linkedin"=>isset($_POST["linkedin"]) ? $_POST["linkedin"] : "",
+            ":github"=>isset($_POST["github"]) ? $_POST["github"] : "",
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+    }
+
+});
+$app->post('/api/adm/addUser', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+
+        $sql->select("INSERT INTO equipe(name,sobre,linkedin,github) VALUES(:name,:sobre,:linkedin,:github)",[
+            ":name"=>isset($_POST["name"]) ? $_POST["name"] : "",
+            ":sobre"=>isset($_POST["sobre"]) ? $_POST["sobre"] : "",
+            ":linkedin"=>isset($_POST["linkedin"]) ? $_POST["linkedin"] : "",
+            ":github"=>isset($_POST["github"]) ? $_POST["github"] : ""
+        ]);
+    }
+
+});
 
 
 ?>

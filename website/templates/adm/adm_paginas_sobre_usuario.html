@@ -35,11 +35,11 @@
     <h1>Equipe / {$user.name ? $user.name : "Novo Usuário"}</h1>
     <div>
         <p>Nome</p>
-        <input type="text" value="{$user.name}">
+        <input type="text" id="name" value="{$user.name}">
     </div>
     <div>
         <p>Sobre</p>
-        <textarea>{$user.sobre}</textarea>
+        <textarea id="sobre">{$user.sobre}</textarea>
     </div>
     <div>
         <p>Foto</p>
@@ -49,12 +49,17 @@
     </div>
     <div>
         <p>Linkedin</p>
-        <input type="text" value="{$user.linkedin}">
+        <input type="text" id="linkedin" value="{$user.linkedin}">
     </div>
     <div>
         <p>Github</p>
-        <input type="text" value="{$user.github}">
+        <input type="text" id="github" value="{$user.github}">
     </div>
     
-    <button class="button1">Salvar</button>
+    {if="isset($user.id)"}
+    <button class="button1" onclick="Pagina.update({$user.id})">Salvar</button>
+    {else}
+    <button class="button1" onclick="Pagina.adicionar()">Adicionar</button>
+    {/if}
 </div>
+<script src="{#ROUTE_WEBSITE#}/js/adm/PaginaUpdateUser.js"></script>

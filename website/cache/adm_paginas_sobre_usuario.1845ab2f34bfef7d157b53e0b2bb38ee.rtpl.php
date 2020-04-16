@@ -35,11 +35,11 @@
     <h1>Equipe / <?php echo (htmlspecialchars( $user["name"] , ENT_COMPAT, 'UTF-8', FALSE )?htmlspecialchars(  $user["name"] , ENT_COMPAT, 'UTF-8', FALSE ): "Novo Usuário"); ?></h1>
     <div>
         <p>Nome</p>
-        <input type="text" value="<?php echo htmlspecialchars( $user["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="name" value="<?php echo htmlspecialchars( $user["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Sobre</p>
-        <textarea><?php echo htmlspecialchars( $user["sobre"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="sobre"><?php echo htmlspecialchars( $user["sobre"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Foto</p>
@@ -49,12 +49,17 @@
     </div>
     <div>
         <p>Linkedin</p>
-        <input type="text" value="<?php echo htmlspecialchars( $user["linkedin"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="linkedin" value="<?php echo htmlspecialchars( $user["linkedin"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Github</p>
-        <input type="text" value="<?php echo htmlspecialchars( $user["github"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="github" value="<?php echo htmlspecialchars( $user["github"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     
-    <button class="button1">Salvar</button>
+    <?php if( isset($user["id"]) ){ ?>
+    <button class="button1" onclick="Pagina.update(<?php echo htmlspecialchars( $user["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>)">Salvar</button>
+    <?php }else{ ?>
+    <button class="button1" onclick="Pagina.adicionar()">Adicionar</button>
+    <?php } ?>
 </div>
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginaUpdateUser.js"></script>
