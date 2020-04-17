@@ -124,6 +124,12 @@
                     color: $color1;
                     cursor: pointer;
                 }
+                >div{
+                    display: block;
+                    button{
+                        margin-bottom: 20px;
+                    }
+                }
             }
         }
         .listImages{

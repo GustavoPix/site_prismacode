@@ -126,6 +126,47 @@ $app->post('/api/adm/tecnologiaTrabalho/delete', function (Request $request, Res
     }
 
 });
+$app->post('/api/adm/updateProcesso', function (Request $request, Response $response, array $args) use ($app) {
 
+    if(true)
+    {
+
+        $sql = new Sql();
+
+        $sql->select("UPDATE processos SET title = :title, text = :text WHERE id = :id",[
+            ":title"=>isset($_POST["title"]) ? $_POST["title"] : "",
+            ":text"=>isset($_POST["text"]) ? $_POST["text"] : "",
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+    }
+
+});
+$app->post('/api/adm/processo', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+        $sql->select("INSERT INTO processos(title,text) VALUES(:title,:text)",[
+            ":title"=>isset($_POST["title"]) ? $_POST["title"] : "",
+            ":text"=>isset($_POST["text"]) ? $_POST["text"] : ""
+        ]);
+       
+    }
+
+});
+$app->post('/api/adm/processo/delete', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+        $sql->select("DELETE FROM processos WHERE id = :id",[
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+       
+    }
+
+});
 
 ?>

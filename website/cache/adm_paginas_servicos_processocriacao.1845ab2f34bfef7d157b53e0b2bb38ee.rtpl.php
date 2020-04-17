@@ -31,17 +31,23 @@
         <ul class="listTecnologias">
             <?php $counter1=-1;  if( isset($processos) && ( is_array($processos) || $processos instanceof Traversable ) && sizeof($processos) ) foreach( $processos as $key1 => $value1 ){ $counter1++; ?>
             <li>
-                <input type="text" value="<?php echo htmlspecialchars( $value1["title"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                <textarea><?php echo htmlspecialchars( $value1["text"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
-                <button>Deletar</button>
+                <input type="text" id="title_<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" value="<?php echo htmlspecialchars( $value1["title"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                <textarea id="text_<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["text"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+                <div>
+                    <button onclick="Pagina.update(<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>)">Salvar</button>
+                    <button onclick="Pagina.delete(<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>)">Deletar</button>
+                </div>
             </li>
             <?php } ?>
             <li>
-                <button>Novo</button>
+                <input type="text" id="title_new">
+                <textarea id="text_new"></textarea>
+                <div>
+                    <button onclick="Pagina.adicionar()">Salvar</button>
+                </div>
             </li>
         </ul>
     </div>
-    
-    
-    <button class="button1">Salvar</button>
 </div>
+
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginaProcessos.js"></script>

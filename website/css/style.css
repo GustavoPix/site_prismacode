@@ -2209,6 +2209,14 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li, a, div, img, button, input {
   cursor: pointer;
 }
 
+.adm_content div .listTecnologias li > div {
+  display: block;
+}
+
+.adm_content div .listTecnologias li > div button {
+  margin-bottom: 20px;
+}
+
 .adm_content div .listImages {
   width: -webkit-fit-content;
   width: -moz-fit-content;

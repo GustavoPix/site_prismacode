@@ -31,17 +31,23 @@
         <ul class="listTecnologias">
             {loop="$processos"}
             <li>
-                <input type="text" value="{$value.title}">
-                <textarea>{$value.text}</textarea>
-                <button>Deletar</button>
+                <input type="text" id="title_{$value.id}" value="{$value.title}">
+                <textarea id="text_{$value.id}">{$value.text}</textarea>
+                <div>
+                    <button onclick="Pagina.update({$value.id})">Salvar</button>
+                    <button onclick="Pagina.delete({$value.id})">Deletar</button>
+                </div>
             </li>
             {/loop}
             <li>
-                <button>Novo</button>
+                <input type="text" id="title_new">
+                <textarea id="text_new"></textarea>
+                <div>
+                    <button onclick="Pagina.adicionar()">Salvar</button>
+                </div>
             </li>
         </ul>
     </div>
-    
-    
-    <button class="button1">Salvar</button>
 </div>
+
+<script src="{#ROUTE_WEBSITE#}/js/adm/PaginaProcessos.js"></script>
