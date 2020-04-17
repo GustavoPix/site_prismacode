@@ -56,6 +56,76 @@ $app->post('/api/adm/addUser', function (Request $request, Response $response, a
     }
 
 });
+$app->post('/api/adm/updateTrabalho', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+
+        $sql->select("UPDATE projetos SET nome = :nome, tipo = :tipo, site = :site, projeto = :projeto, features = :features, solucao = :solucao, resultado = :resultado WHERE id = :id",[
+            ":nome"=>isset($_POST["name"]) ? $_POST["name"] : "",
+            ":tipo"=>isset($_POST["tipo"]) ? $_POST["tipo"] : "",
+            ":site"=>isset($_POST["site"]) ? $_POST["site"] : "",
+            ":projeto"=>isset($_POST["projeto"]) ? $_POST["projeto"] : "",
+            ":features"=>isset($_POST["features"]) ? $_POST["features"] : "",
+            ":solucao"=>isset($_POST["solucao"]) ? $_POST["solucao"] : "",
+            ":resultado"=>isset($_POST["resultado"]) ? $_POST["resultado"] : "",
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+    }
+
+});
+$app->post('/api/adm/trabalho', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+
+        $sql->select("INSERT INTO projetos(nome,tipo,site,projeto,features,solucao,resultado) VALUES(:nome,:tipo,:site,:projeto,:features,:solucao,:resultado)",[
+            ":nome"=>isset($_POST["name"]) ? $_POST["name"] : "",
+            ":tipo"=>isset($_POST["tipo"]) ? $_POST["tipo"] : "",
+            ":site"=>isset($_POST["site"]) ? $_POST["site"] : "",
+            ":projeto"=>isset($_POST["projeto"]) ? $_POST["projeto"] : "",
+            ":features"=>isset($_POST["features"]) ? $_POST["features"] : "",
+            ":solucao"=>isset($_POST["solucao"]) ? $_POST["solucao"] : "",
+            ":resultado"=>isset($_POST["resultado"]) ? $_POST["resultado"] : ""
+        ]);
+
+        echo json_encode($sql->select("SELECT id,nome FROM projetos WHERE nome = :nome",[
+            ":nome"=>isset($_POST["name"]) ? $_POST["name"] : "",
+        ]));
+    }
+
+});
+$app->post('/api/adm/tecnologiaTrabalho', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+        $sql->select("INSERT INTO tecnologias_projeto(name,projeto) VALUES(:name,:projeto)",[
+            ":name"=>isset($_POST["name"]) ? $_POST["name"] : "",
+            ":projeto"=>isset($_POST["projeto"]) ? $_POST["projeto"] : ""
+        ]);
+       
+    }
+
+});
+$app->post('/api/adm/tecnologiaTrabalho/delete', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+        $sql->select("DELETE FROM tecnologias_projeto WHERE id = :id",[
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+       
+    }
+
+});
 
 
 ?>

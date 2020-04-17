@@ -123,6 +123,7 @@ $app->get('/adm/paginas/projetos/novo', function (Request $request, Response $re
         "mainMenu"=>MainMenu::Menu("paginas"),
         "secondMenu"=>PaginasMenu::Menu("projetos"),
         "thirMenu"=>ProjetosMenu::Menu("principal"),
+        "trabalhos"=>Trabalhos::GetList($args["idProject"]),
         "content"=>$content,
         "novoTrabalho"=>true
     ]);
@@ -140,7 +141,7 @@ $app->get('/adm/paginas/projetos/{idProject}', function (Request $request, Respo
     $page->setTpl("adm_paginas_projetos_trabalho",[
         "mainMenu"=>MainMenu::Menu("paginas"),
         "secondMenu"=>PaginasMenu::Menu("projetos"),
-        "thirMenu"=>ProjetosMenu::Menu("principal"),
+        "thirMenu"=>ProjetosMenu::Menu(""),
         "trabalhos"=>Trabalhos::GetList($args["idProject"]),
         "trabalho"=>Trabalhos::GetTrabalho($args["idProject"])[0],
         "tecnologias"=>Trabalhos::GetTecnologias($args["idProject"]),

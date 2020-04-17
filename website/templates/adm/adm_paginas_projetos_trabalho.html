@@ -35,43 +35,43 @@
     <h1>Projetos / {$trabalho.nome ? $trabalho.nome : "Novo Trabalho"}</h1>
     <div>
         <p>Nome</p>
-        <input type="text" value="{$trabalho.nome}">
+        <input type="text" id="name" value="{$trabalho.nome}">
     </div>
     <div>
         <p>Tipo</p>
-        <input type="text" value="{$trabalho.tipo}">
+        <input type="text" id="tipo" value="{$trabalho.tipo}">
     </div>
     <div>
         <p>Site</p>
-        <input type="text" value="{$trabalho.site}">
+        <input type="text" id="site" value="{$trabalho.site}">
     </div>
     <div>
         <p>O Projeto</p>
-        <textarea>{$trabalho.projeto}</textarea>
+        <textarea id="projeto">{$trabalho.projeto}</textarea>
     </div>
     <div>
         <p>Features</p>
-        <textarea>{$trabalho.features}</textarea>
+        <textarea id="features">{$trabalho.features}</textarea>
     </div>
     <div>
         <p>Solução</p>
-        <textarea>{$trabalho.solucao}</textarea>
+        <textarea id="solucao">{$trabalho.solucao}</textarea>
     </div>
     <div>
         <p>Resultado</p>
-        <textarea>{$trabalho.resultado}</textarea>
+        <textarea id="resultado">{$trabalho.resultado}</textarea>
     </div>
     <div>
         <p>Tecnologias</p>
         <ul class="listTecnologias">
             {loop="$tecnologias"}
-            <li>
-                <input type="text" value="{$value.name}">
-                <button>Deletar</button>
+            <li id="tecnologia_{$value.id}">
+                <input type="text" value="{$value.name}" disabled>
+                <button onclick="Pagina.pushDelete({$value.id})">Deletar</button>
             </li>
             {/loop}
             <li>
-                <button>Novo</button>
+                <input type="text" id="tecnologias" value="{$value.name}">
             </li>
         </ul>
     </div>
@@ -107,6 +107,10 @@
             
         </ul>
     </div>
-    
-    <button class="button1">Salvar</button>
+    {if="isset($user.id)"}
+    <button class="button1" onclick="Pagina.update({$trabalho.id})">Salvar</button>
+    {else}
+    <button class="button1" onclick="Pagina.adicionar()">Adicionar</button>
+    {/if}
 </div>
+<script src="{#ROUTE_WEBSITE#}/js/adm/PaginaTrabalhos.js"></script>

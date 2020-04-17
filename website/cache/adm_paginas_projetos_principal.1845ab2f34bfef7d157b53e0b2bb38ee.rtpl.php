@@ -28,7 +28,7 @@
         <?php $counter1=-1;  if( isset($trabalhos) && ( is_array($trabalhos) || $trabalhos instanceof Traversable ) && sizeof($trabalhos) ) foreach( $trabalhos as $key1 => $value1 ){ $counter1++; ?>
             <li <?php if( $value1["active"] ){ ?>class="selected"<?php } ?>><a href="<?php echo htmlspecialchars( $value1["link"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
         <?php } ?>
-        <li <?php if( $novoTrabalho ){ ?>class="selected"<?php } ?>><a href="<?php echo ROUTE; ?>/adm/paginas/sobre/usuario/novo">+ Novo Trabalho</a></li>
+        <li <?php if( $novoTrabalho ){ ?>class="selected"<?php } ?>><a href="<?php echo ROUTE; ?>/adm/paginas/projetos/novo">+ Novo Trabalho</a></li>
     </ul>
 </div>
 <div class="adm_content">

@@ -35,43 +35,43 @@
     <h1>Projetos / <?php echo (htmlspecialchars( $trabalho["nome"] , ENT_COMPAT, 'UTF-8', FALSE )?htmlspecialchars(  $trabalho["nome"] , ENT_COMPAT, 'UTF-8', FALSE ): "Novo Trabalho"); ?></h1>
     <div>
         <p>Nome</p>
-        <input type="text" value="<?php echo htmlspecialchars( $trabalho["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="name" value="<?php echo htmlspecialchars( $trabalho["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Tipo</p>
-        <input type="text" value="<?php echo htmlspecialchars( $trabalho["tipo"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="tipo" value="<?php echo htmlspecialchars( $trabalho["tipo"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>Site</p>
-        <input type="text" value="<?php echo htmlspecialchars( $trabalho["site"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+        <input type="text" id="site" value="<?php echo htmlspecialchars( $trabalho["site"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
     </div>
     <div>
         <p>O Projeto</p>
-        <textarea><?php echo htmlspecialchars( $trabalho["projeto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="projeto"><?php echo htmlspecialchars( $trabalho["projeto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Features</p>
-        <textarea><?php echo htmlspecialchars( $trabalho["features"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="features"><?php echo htmlspecialchars( $trabalho["features"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Solução</p>
-        <textarea><?php echo htmlspecialchars( $trabalho["solucao"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="solucao"><?php echo htmlspecialchars( $trabalho["solucao"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Resultado</p>
-        <textarea><?php echo htmlspecialchars( $trabalho["resultado"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
+        <textarea id="resultado"><?php echo htmlspecialchars( $trabalho["resultado"], ENT_COMPAT, 'UTF-8', FALSE ); ?></textarea>
     </div>
     <div>
         <p>Tecnologias</p>
         <ul class="listTecnologias">
             <?php $counter1=-1;  if( isset($tecnologias) && ( is_array($tecnologias) || $tecnologias instanceof Traversable ) && sizeof($tecnologias) ) foreach( $tecnologias as $key1 => $value1 ){ $counter1++; ?>
-            <li>
-                <input type="text" value="<?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                <button>Deletar</button>
+            <li id="tecnologia_<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                <input type="text" value="<?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" disabled>
+                <button onclick="Pagina.pushDelete(<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>)">Deletar</button>
             </li>
             <?php } ?>
             <li>
-                <button>Novo</button>
+                <input type="text" id="tecnologias" value="<?php echo htmlspecialchars( $value["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
             </li>
         </ul>
     </div>
@@ -107,6 +107,10 @@
             
         </ul>
     </div>
-    
-    <button class="button1">Salvar</button>
+    <?php if( isset($user["id"]) ){ ?>
+    <button class="button1" onclick="Pagina.update(<?php echo htmlspecialchars( $trabalho["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>)">Salvar</button>
+    <?php }else{ ?>
+    <button class="button1" onclick="Pagina.adicionar()">Adicionar</button>
+    <?php } ?>
 </div>
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/PaginaTrabalhos.js"></script>
