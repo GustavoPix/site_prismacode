@@ -74,5 +74,7 @@
     <?php } ?>
     
     
-    <button class="button1">Marcar como lida</button>
+    <button class="button1" onclick="Pagina.read(<?php echo htmlspecialchars( $mensagem["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>)">Marcar como lida</button>
 </div>
+
+<script src="<?php echo ROUTE_WEBSITE; ?>/js/adm/MensagensProjeto.js"></script>

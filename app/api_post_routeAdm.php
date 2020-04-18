@@ -168,5 +168,31 @@ $app->post('/api/adm/processo/delete', function (Request $request, Response $res
     }
 
 });
+$app->post('/api/adm/mensagem/marcarlida', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+        $sql->select("UPDATE mensagem SET answered_in = now() WHERE id = :id",[
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+       
+    }
+
+});
+$app->post('/api/adm/projeto/marcarlida', function (Request $request, Response $response, array $args) use ($app) {
+
+    if(true)
+    {
+
+        $sql = new Sql();
+        $sql->select("UPDATE mensagem_projeto SET answered_in = now() WHERE id = :id",[
+            ":id"=>isset($_POST["id"]) ? $_POST["id"] : ""
+        ]);
+       
+    }
+
+});
 
 ?>
