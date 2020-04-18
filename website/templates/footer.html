@@ -3,13 +3,13 @@
         <div class="container">
             <ul class="socialMedia">
                 <li>
-                    <a href="https://www.instagram.com/prismacodeoficial/" target="_blank">{include="instagran"}</a>
+                    <a href="{$contato->getContent('instagram')}" target="_blank">{include="instagran"}</a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/PrismacodeOficial/" target="_blank">{include="facebook"}</a>
+                    <a href="{$contato->getContent('facebook')}" target="_blank">{include="facebook"}</a>
                 </li>
             </ul>
-            <p>contato@prismacode.com</p>
+            <p>{$contato->getContent('email')}</p>
         </div>
     </div>
 </footer>

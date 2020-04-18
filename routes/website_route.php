@@ -6,9 +6,13 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use Source\Models\Page;
 use Source\Sql\Models\Projeto;
 use Source\Sql\Models\Blog;
+use Source\Sql\Models\Content;
+use Source\Sql\Sql;
 
 $app->get('/', function (Request $request, Response $response, array $args) use ($app) {
 
+    $contentHome = new Content("home");
+    $contentContato = new Content("contato");
     $projects = Projeto::GetProjects(array(
         "limit"=>2,
         "type"=>"resume",
@@ -22,15 +26,11 @@ $app->get('/', function (Request $request, Response $response, array $args) use 
     ]);
     $page->setTpl("banner",[
         "titulo"=>"Softwares e Websites",
-        "textoLines"=>[
-            "Criatividade,",
-            "Velocidade e",
-            "Experiencia de usuário"
-        ]
+        "textoLines"=>[$contentHome->GetContent('titulo')]
     ]);
     $page->setTpl("tituloFrase1",[
         "titulo"=>"Softwares e Websites",
-        "frase"=>"Somos uma empresa focada na criação de websites e sistemas integrados focados no design do produto. Acreditamos que toda a experiencia do usuário começa em um design simples, criativo e rápido"
+        "frase"=>$contentHome->GetContent('sobre')
     ]);
     $page->setTpl("listProjects",[
         "titulo"=>"Últimos projetos",
@@ -38,83 +38,79 @@ $app->get('/', function (Request $request, Response $response, array $args) use 
             "linkButton"=>"./projetos",
             "buttonTitle"=>"Todos os projetos"
     ]);
-    $page->setTpl("solucoes");
-    $page->setTpl("footer",[]);
+    $page->setTpl("solucoes",[
+        "content"=>$contentHome
+    ]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 $app->get('/sobre', function (Request $request, Response $response, array $args) use ($app) {
     
     $page = new Page();
+    $sql = new Sql();
+    $contentSobre = new Content("sobre");
+    $equipeSql = $sql->select("SELECT * FROM equipe");
+    $processosSql = $sql->select("SELECT * FROM processos");
+    $contentContato = new Content("contato");
+    $equipe = array();
+    $processos = array();
+
+    foreach($equipeSql as $user)
+    {
+        array_push($equipe,array(
+            "nome"=>$user['name'],
+            "foto"=>$user['photo'],
+            "frase"=>$user['sobre'],
+            "social"=>[
+                array(
+                    "link"=>$user['linkedin'],
+                    "image"=>"linkedin"
+                ),
+                array(
+                    "link"=>$user['github'],
+                    "image"=>"github"
+                )
+            ]
+        ));
+    }
+    foreach($processosSql as $processo)
+    {
+        array_push($processos,array(
+            "titulo"=>$processo['title'],
+            "resumo"=>$processo['text']
+        ));
+    }
+
     $page->setTpl("header",[
         "logo"=>"logo",
         "local"=>"sobre"
     ]);
     $page->setTpl("banner",[
         "titulo"=>"Sobre a Prismacode",
-        "textoLines"=>[
-            "Conheça um",
-            "pouco sobre",
-            "a Prismacode"
-        ]
+        "textoLines"=>[$contentSobre->GetContent('titulo')]
     ]);
     $page->setTpl("tituloFrase1",[
         "titulo"=>"Objetivos",
-        "frase"=>"Acreditamos em um mundo mais digital, integrado e com relações duradouras, procuramos oferecer uma relação duradoura e amigável com nossos parceiros, focando em preço, qualidade e design."
+        "frase"=>$contentSobre->GetContent('objetivo')
     ]);
     $page->setTpl("equipe",[
-        "equipe"=> [
-            array(
-                "nome"=>"Gustavo Carvalho",
-                "foto"=>"gustavo_carvalho.jpg",
-                "frase"=>"Fundador da Prismacode, apaixonado por jogos, programação e design, busca oferecer o melhor serviço na criação de sites e sistemas, transformando-os em produtos criativos, divertidos e cativantes como nos jogos.",
-                "social"=>[
-                    array(
-                        "link"=>"https://www.linkedin.com/in/gustavolcarvalho/",
-                        "image"=>"linkedin"
-                    ),
-                    array(
-                        "link"=>"https://github.com/GustavoPix",
-                        "image"=>"github"
-                    )
-                ]
-            )
-        ]
+        "equipe"=> $equipe
     ]);
     $page->setTpl("processos",[
-        "etapas"=>[
-            array(
-                "titulo"=>"O projeto",
-                "resumo"=>"Ao recebermos um novo projeto, procuramos entender as necessidades do nosso cliente e coletar o máximo de informações possíveis sobre o projeto."
-            ),
-            array(
-                "titulo"=>"Projetando",
-                "resumo"=>"Projetamos as funcionalidades e a atuação do projeto, separamos as etapas e ferramentas necessárias para a conclusão do projeto. Apresentamos o projeto criado para a aprovação de nosso cliente."
-            ),
-            array(
-                "titulo"=>"Blocagem",
-                "resumo"=>"Criamos neste momento um pequeno simulador do que seria o projeto, assim podemos analizar as posições de botões, paginas e etc. Apresentamos ao cliente onde já pode ter uma idéia de como ficará o projeto."
-            ),
-            array(
-                "titulo"=>"Cores!",
-                "resumo"=>"Com um layout pré definido, é hora de escolhes as cores, imagens e textos, damos vida a blocagem e podemos fazer os ajustes finais do layout e funcionalidades."
-            ),
-            array(
-                "titulo"=>"Criação",
-                "resumo"=>"Layout definido, cores definidas e processos definidos, esta é a hora de dar vida ao projeto! Este é o processo mais divertido do projeto, pois é quando estamos finalmente dando vida a ele."
-            ),
-            array(
-                "titulo"=>"Testes e entrega",
-                "resumo"=>"Projeto finalizado, é hora de testar, corrigir bugs e entrega-lo ao mundo!"
-            )
-        ]
+        "etapas"=>$processos
     ]);
     $page->setTpl("duvidaSobre");
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 $app->get('/projetos', function (Request $request, Response $response, array $args) use ($app) {
     
-
+    $contentProjetos = new Content("projetos");
+    $contentContato = new Content("contato");
     $projectsDestaque = Projeto::GetProjects(array(
         "limit"=>4,
         "type"=>"resume",
@@ -134,15 +130,11 @@ $app->get('/projetos', function (Request $request, Response $response, array $ar
     ]);
     $page->setTpl("banner",[
         "titulo"=>"Projetos",
-        "textoLines"=>[
-            "Veja os",
-            "projetos que",
-            "demos vida"
-        ]
+        "textoLines"=>[$contentProjetos->GetContent('titulo')]
     ]);
     $page->setTpl("tituloFrase1",[
         "titulo"=>"Conheça os projetos",
-        "frase"=>"Temos orgulho de mostra os projetos que criamos junto com nossos parceiros, conheça um pouco sobre os últimos projetos que realizamos."
+        "frase"=>$contentProjetos->GetContent('sobre')
     ]);
     $page->setTpl("listProjects",[
         "titulo"=>"Últimos projetos",
@@ -152,7 +144,9 @@ $app->get('/projetos', function (Request $request, Response $response, array $ar
     $page->setTpl("allProjects",[
         "projects"=>$projectsAll
     ]);
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 $app->get('/projeto/{idProjeto}', function (Request $request, Response $response, array $args) use ($app) {
@@ -160,6 +154,7 @@ $app->get('/projeto/{idProjeto}', function (Request $request, Response $response
     $project = Projeto::GetProject($args['idProjeto']);
     $imagesProject = Projeto::GetImagesProject($args['idProjeto']);
     $tecnologiasProject = Projeto::GetTecnologiasProject($args['idProjeto']);
+    $contentContato = new Content("contato");
     $page = new Page();
     $page->setTpl("header",[
         "logo"=>"logo",
@@ -202,39 +197,53 @@ $app->get('/projeto/{idProjeto}', function (Request $request, Response $response
     
     
     
-    $page->setTpl("footer",[]);
-    
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
 });
 
 $app->get('/servicos', function (Request $request, Response $response, array $args) use ($app) {
     
+    $sql = new Sql();
+    $page = new Page();
+    $contentServicos = new Content("servicos");
+    $contentWebsite = new Content("website");
+    $contentSoftware = new Content("software");
+    $processosSql = $sql->select("SELECT * FROM processos");
+    $contentContato = new Content("contato");
+    $processos = array();
+
+    foreach($processosSql as $processo)
+    {
+        array_push($processos,array(
+            "titulo"=>$processo['title'],
+            "resumo"=>$processo['text']
+        ));
+    }
+
     $projects = Projeto::GetProjects(array(
         "limit"=>2,
         "type"=>"resume",
         "order"=>false
     ));
-    $page = new Page();
+    
     $page->setTpl("header",[
         "logo"=>"logo",
         "local"=>"servicos"
     ]);
     $page->setTpl("banner",[
         "titulo"=>"Serviços",
-        "textoLines"=>[
-            "Conheça os",
-            "serviços que",
-            "trabalhamos"
-        ]
+        "textoLines"=>[$contentServicos->GetContent('titulo')]
     ]);
     
     $page->setTpl("servicosOferecidos",[
-        "depoimento"=>"Um depoimento de alguem da empresa",
-        "nomeDepoente"=>"Gustavo Carvalho",
-        "tecnologias"=>[
+       "tecnologias"=>[
             "facebook",
             "github",
             "linkedin"
-        ]
+       ],
+       "website"=>$contentWebsite,
+       "software"=>$contentSoftware
     ]);
     $page->setTpl("listProjects",[
         "titulo"=>"Últimos projetos",
@@ -243,37 +252,14 @@ $app->get('/servicos', function (Request $request, Response $response, array $ar
         "buttonTitle"=>"Todos os projetos"
     ]);
     $page->setTpl("processos",[
-        "etapas"=>[
-            array(
-                "titulo"=>"O projeto",
-                "resumo"=>"Ao recebermos um novo projeto, procuramos entender as necessidades do nosso cliente e coletar o máximo de informações possíveis sobre o projeto."
-            ),
-            array(
-                "titulo"=>"Projetando",
-                "resumo"=>"Projetamos as funcionalidades e a atuação do projeto, separamos as etapas e ferramentas necessárias para a conclusão do projeto. Apresentamos o projeto criado para a aprovação de nosso cliente."
-            ),
-            array(
-                "titulo"=>"Blocagem",
-                "resumo"=>"Criamos neste momento um pequeno simulador do que seria o projeto, assim podemos analizar as posições de botões, paginas e etc. Apresentamos ao cliente onde já pode ter uma idéia de como ficará o projeto."
-            ),
-            array(
-                "titulo"=>"Cores!",
-                "resumo"=>"Com um layout pré definido, é hora de escolhes as cores, imagens e textos, damos vida a blocagem e podemos fazer os ajustes finais do layout e funcionalidades."
-            ),
-            array(
-                "titulo"=>"Criação",
-                "resumo"=>"Layout definido, cores definidas e processos definidos, esta é a hora de dar vida ao projeto! Este é o processo mais divertido do projeto, pois é quando estamos finalmente dando vida a ele."
-            ),
-            array(
-                "titulo"=>"Testes e entrega",
-                "resumo"=>"Projeto finalizado, é hora de testar, corrigir bugs e entrega-lo ao mundo!"
-            )
-        ]
+        "etapas"=>$processos
     ]);
     $page->setTpl("duvidaSobre");
     
     
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 
@@ -340,7 +326,9 @@ $app->get('/blog', function (Request $request, Response $response, array $args) 
             "buttonTitle"=>"Carregar mais"
     ]);*/
 
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 
@@ -384,35 +372,37 @@ $app->get('/blog/{id}', function (Request $request, Response $response, array $a
     ]);
     $page->setTpl("newsletter");
 
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 
 $app->get('/contato', function (Request $request, Response $response, array $args) use ($app) {
     
     $page = new Page();
+    $contentContato = new Content("contato");
     $page->setTpl("header",[
         "logo"=>"logo",
         "local"=>"contato"
     ]);
     $page->setTpl("banner",[
         "titulo"=>"Contato",
-        "textoLines"=>[
-            "Vamos começar",
-            "um projeto",
-            "juntos"
-        ]
+        "textoLines"=>[$contentContato->getContent('titulo')]
     ]);
     
     $page->setTpl("contato");
 
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 
 $app->get('/politica_privacidade', function (Request $request, Response $response, array $args) use ($app) {
     
     $page = new Page();
+    $contentContato = new Content("contato");
     $page->setTpl("header",[
         "logo"=>"logo",
         "local"=>"termos"
@@ -420,7 +410,9 @@ $app->get('/politica_privacidade', function (Request $request, Response $respons
     
     $page->setTpl("politica_privacidade");
 
-    $page->setTpl("footer",[]);
+    $page->setTpl("footer",[
+        "contato"=>$contentContato
+    ]);
     
 });
 

@@ -3,13 +3,13 @@
         <div class="container">
             <ul class="socialMedia">
                 <li>
-                    <a href="https://www.instagram.com/prismacodeoficial/" target="_blank"><?php require $this->checkTemplate("instagran");?></a>
+                    <a href="<?php echo htmlspecialchars( $contato->getContent('instagram'), ENT_COMPAT, 'UTF-8', FALSE ); ?>" target="_blank"><?php require $this->checkTemplate("instagran");?></a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/PrismacodeOficial/" target="_blank"><?php require $this->checkTemplate("facebook");?></a>
+                    <a href="<?php echo htmlspecialchars( $contato->getContent('facebook'), ENT_COMPAT, 'UTF-8', FALSE ); ?>" target="_blank"><?php require $this->checkTemplate("facebook");?></a>
                 </li>
             </ul>
-            <p>contato@prismacode.com</p>
+            <p><?php echo htmlspecialchars( $contato->getContent('email'), ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
         </div>
     </div>
 </footer>

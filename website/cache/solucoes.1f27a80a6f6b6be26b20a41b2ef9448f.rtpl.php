@@ -5,7 +5,7 @@
                 <h3>Nossas soluções</h3>
             </div>
             <div class="grid-1 listSolucao">
-                <p>Procurando um website para a sua empresa ou evento? Gostaria de tirar um software da sua emrpesa do papel? Juntos, vamos fazer isso acontecer.</p>
+                <p><?php echo htmlspecialchars( $content->GetContent('solucoes'), ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
                 <ul>
                     <li><a href="">Website institucional</a></li>
                     <li><a href="">Software integrado</a></li>
