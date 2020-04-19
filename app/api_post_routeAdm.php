@@ -7,6 +7,7 @@ use Source\Sql\Models\Projeto;
 use Source\Sql\Models\Blog;
 use Source\Sql\Models\Message;
 use Source\Sql\Sql;
+use Source\Sql\Models\User;
 
 
 $app->post('/api/adm/updateContent', function (Request $request, Response $response, array $args) use ($app) {

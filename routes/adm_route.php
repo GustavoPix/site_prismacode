@@ -18,22 +18,41 @@ use Source\Sql\Models\Content;
 use Source\Sql\Models\Equipe;
 use Source\Sql\Models\Trabalhos;
 use Source\Sql\Models\ProcessoCriacao;
+use Source\Sql\Sql;
+use Source\Encrypt;
+use Source\Sql\Models\User;
 
+$app->get('/adm/login', function (Request $request, Response $response, array $args) use ($app) {
+
+    
+    $page = new Page();
+    
+    $page->setTpl("login",[
+    ]);
+    
+});
 $app->get('/adm/paginas/home', function (Request $request, Response $response, array $args) use ($app) {
 
-    $page = new Page();
-    $content = new Content("home");
-    $page->setTpl("adm_header",[
-        
-    ]);
-    $page->setTpl("adm_paginas_home",[
-        "mainMenu"=>MainMenu::Menu("paginas"),
-        "secondMenu"=>PaginasMenu::Menu("home"),
-        "content"=>$content
-    ]);
-    $page->setTpl("adm_footer",[
-        
-    ]);
+    if(User::ValidateUser())
+    {
+        $page = new Page();
+        $content = new Content("home");
+        $page->setTpl("adm_header",[
+
+        ]);
+        $page->setTpl("adm_paginas_home",[
+            "mainMenu"=>MainMenu::Menu("paginas"),
+            "secondMenu"=>PaginasMenu::Menu("home"),
+            "content"=>$content
+        ]);
+        $page->setTpl("adm_footer",[
+
+        ]);
+    }
+    else
+    {
+        return $response->withRedirect('/');
+    }
     
 });
 
@@ -275,6 +294,11 @@ $app->get('/adm/mensagens/projetos/{idMensagem}', function (Request $request, Re
     $page->setTpl("adm_footer",[
         
     ]);
+    
+});
+$app->post('/debug/encrypt', function (Request $request, Response $response, array $args) use ($app) {
+
+    echo Encrypt::encryptData($_POST["data"]);
     
 });
 
