@@ -12,7 +12,7 @@ use Source\Sql\Models\User;
 
 $app->post('/api/adm/updateContent', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
         $sql = new Sql();
 
@@ -26,7 +26,7 @@ $app->post('/api/adm/updateContent', function (Request $request, Response $respo
 });
 $app->post('/api/adm/updateUser', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -43,7 +43,7 @@ $app->post('/api/adm/updateUser', function (Request $request, Response $response
 });
 $app->post('/api/adm/addUser', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -59,7 +59,7 @@ $app->post('/api/adm/addUser', function (Request $request, Response $response, a
 });
 $app->post('/api/adm/updateTrabalho', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -79,7 +79,7 @@ $app->post('/api/adm/updateTrabalho', function (Request $request, Response $resp
 });
 $app->post('/api/adm/trabalho', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -102,7 +102,7 @@ $app->post('/api/adm/trabalho', function (Request $request, Response $response, 
 });
 $app->post('/api/adm/tecnologiaTrabalho', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -116,7 +116,7 @@ $app->post('/api/adm/tecnologiaTrabalho', function (Request $request, Response $
 });
 $app->post('/api/adm/tecnologiaTrabalho/delete', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -129,7 +129,7 @@ $app->post('/api/adm/tecnologiaTrabalho/delete', function (Request $request, Res
 });
 $app->post('/api/adm/updateProcesso', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -144,7 +144,7 @@ $app->post('/api/adm/updateProcesso', function (Request $request, Response $resp
 });
 $app->post('/api/adm/processo', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -158,7 +158,7 @@ $app->post('/api/adm/processo', function (Request $request, Response $response, 
 });
 $app->post('/api/adm/processo/delete', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -171,7 +171,7 @@ $app->post('/api/adm/processo/delete', function (Request $request, Response $res
 });
 $app->post('/api/adm/mensagem/marcarlida', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
@@ -184,7 +184,7 @@ $app->post('/api/adm/mensagem/marcarlida', function (Request $request, Response 
 });
 $app->post('/api/adm/projeto/marcarlida', function (Request $request, Response $response, array $args) use ($app) {
 
-    if(true)
+    if(User::ValidateUser())
     {
 
         $sql = new Sql();
